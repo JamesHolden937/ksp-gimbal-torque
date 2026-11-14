@@ -9,6 +9,7 @@ all size their gains from it.
 | [`probe/GimbalProbe.cs`](probe/GimbalProbe.cs) | Read-only measurement plugin, no Harmony. Starts a sandbox game, launches stock Kerbal X, puts it in a 600 km Kerbin orbit, turns off the reaction wheels, SAS and RCS, and lights the first stage. It then steps each axis 0/+1/0/−1/0 and compares `MOI × α` with Σ `GetPotentialTorque()`. Writes `gimbalprobe.txt` in the KSP root and `[GimbalProbe]` lines in KSP.log, then quits. |
 | [`fix/GimbalTorqueFix.cs`](fix/GimbalTorqueFix.cs) | Harmony prefix that replaces `GetPotentialTorque()`. For each gimbal transform, axis and sign it takes the deflection stock's own `GimbalRotation()` gives, rotates the engine's thrust transforms by it, and sums `r × ΔF` about the CoM. |
 | [`logs/KSP-stock.log`](logs/KSP-stock.log) | KSP.log of the probe run on an unmodded 1.12.5.3190 install (Squad, SquadExpansion, GimbalProbe only). The results are at the end. |
+| [`ISSUE.md`](ISSUE.md) | The KSPCommunityFixes issue text, as submitted. |
 | [`build.sh`](build.sh) | Builds both plugins with `mcs`: `KSP=/path/to/KSP ./build.sh` → `bin/`. |
 
 ## Stock result (Kerbal X, 7 engines, 2790 kN)
